@@ -1,8 +1,8 @@
-#appname: phpMyFAQ
-#publisher: BoonWeb
-#url: http://www.boonweb.de
-#image: appicon.png
-#appid: de.boonweb.phpmyfaq
-#desc: undefined
-#type: ipad
-#guid: 70d2159a-23d3-4904-8313-1c6334ce457c
+#appname:phpMyFAQ
+#publisher:BoonWeb
+#url:http://www.boonweb.de
+#image:appicon.png
+#appid:de.boonweb.phpmyfaq
+#desc:A mobile client for phpMyFAQ.
+#type:ipad
+#guid:70d2159a-23d3-4904-8313-1c6334ce457c

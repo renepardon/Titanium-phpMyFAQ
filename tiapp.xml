@@ -4,7 +4,7 @@
         <target device="mobileweb">true</target>
         <target device="iphone">true</target>
         <target device="ipad">true</target>
-        <target device="android">false</target>
+        <target device="android">true</target>
         <target device="blackberry">false</target>
     </deployment-targets>
     <sdk-version>2.1.0.GA</sdk-version>
@@ -13,8 +13,8 @@
     <version>1.0</version>
     <publisher>BoonWeb</publisher>
     <url>http://www.boonweb.de</url>
-    <description>not specified</description>
-    <copyright>2012 by BoonWeb</copyright>
+    <description>A mobile client for phpMyFAQ.</description>
+    <copyright>2012 by Collaborators</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>

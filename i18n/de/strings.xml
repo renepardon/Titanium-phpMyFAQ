@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- All localized strings should go here -->
+<resources>
+	<string name="welcome">Willkommen zu %s!</string>
+	<string name="forward">Weiter</string>
+	<string name="back">Zurück</string>
+</resources>
