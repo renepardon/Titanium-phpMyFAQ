@@ -1,16 +1,11 @@
-
-function render() {
-	
-}
-
 function add (nav) {
 	var window = Ti.UI.createWindow({
 		navBarHidden: false,
         modal : false,
         fullscreen: false,
         tabBarHidden: true,
-    		title: 'Anlegen',
-    		backgroundColor: '#FFFFFF'
+		title: 'Anlegen',
+		backgroundColor: '#FFFFFF'
 	});
     	
 	nav.open(window);
@@ -23,7 +18,7 @@ function add (nav) {
     	
     	var feldURL = Ti.UI.createTextField({
     		keyboardType: Ti.UI.KEYBOARD_URL,
-    		hintText: 'http://www.test.de',
+    		hintText: 'http://www.test.de/',
     		value: '',
     		borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
     		top: 10,
@@ -44,13 +39,13 @@ function add (nav) {
     	})
     	
     	button.addEventListener('click', function(){
+    		var phpMyFAQInfo = require('network/version');
+    		var version = phpMyFAQInfo(feldURL.getValue());
     		alert(feldURL.getValue());
     	})
     	
     	view.add(button);
     	window.add(view);
-    	
-    	alert(feldURL.getValue());
 }
 
 

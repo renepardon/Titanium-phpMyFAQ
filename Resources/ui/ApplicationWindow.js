@@ -4,7 +4,7 @@ function ApplicationWindow() {
     // If you don't want margins around the Translucent or Web View you can set the gutter to zero.
     var gutter = Ti.Platform.displayCaps.platformWidth * 0.025;
     // The translucent view is a stylish rounded rect behind the web view.
-    var translucentViewOn = true;
+    var translucentViewOn = false;
     // If you want the translucent view or the web view to fade in slowly, set this to true.
     var animationsOn = true;
     // If you don't want a navBar with the corresponding back button you can set this to false.
@@ -21,7 +21,7 @@ function ApplicationWindow() {
 var main = Ti.UI.createWindow({
         // If no image desired, you can remove this line and set the backgroundColor instead.
         //backgroundImage : '/images/background.png',
-		backgroundColor: '#ABABAB',
+		backgroundColor: '#FFF',
         navBarHidden : !titleBarOn, // iOS only
  //       barColor : barColor,
         modal : false,
@@ -48,6 +48,23 @@ var main = Ti.UI.createWindow({
     
 var nav = Titanium.UI.iPhone.createNavigationGroup({window: self});
     main.add(nav);
+    
+        var db = require('db');
+    var rows = db.selectDomains();
+    
+    
+    var data = [];
+    for (var i = 0; i < rows.length; ++i) {
+    	data.push({title: rows[i].uri});
+    }
+    
+    var tableview = Ti.UI.createTableView({data: data});
+    tableview.addEventListener('click',function(event) {
+    	var AddMeAgain = require('ui/categories');
+    	AddMeAgain(nav, event.row.title);
+    });
+    self.add(tableview);
+
     
     
     var rightButton = Ti.UI.createButton({systemButton: Titanium.UI.iPhone.SystemButton.ADD});
@@ -90,6 +107,7 @@ var nav = Titanium.UI.iPhone.createNavigationGroup({window: self});
         gutter = gutter * 2;
     }
 
+/*
     // Load the platform specific UI.
     var ApplicationWindowPlatform;
     if (Ti.Platform.osname == 'mobileweb') {
@@ -99,7 +117,7 @@ var nav = Titanium.UI.iPhone.createNavigationGroup({window: self});
         ApplicationWindowPlatform = require('ui/ApplicationWindowPlatform'); // hier geht's ins iPhone
     }
     ApplicationWindowPlatform(self, false, titleBarOn, drawerOn);
-    
+  */  
 
     return self;
 }

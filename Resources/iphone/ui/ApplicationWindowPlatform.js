@@ -9,8 +9,6 @@ function ApplicationWindowPlatform(/*TiUIWindow*/self, /*TiUIView*/webView, /*bo
 */
     }
     
-    self.add(Ti.UI.createTableView({data: [ {title: 'Kategorie1'}, {title: 'Kategorie2'}    ]}));
-
     if (drawerOn) {
         // Put a back/forward button into a drawer at the bottom of the screen that can be
         // opened when needed. 
