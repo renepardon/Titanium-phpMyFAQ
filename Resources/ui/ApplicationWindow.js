@@ -11,7 +11,7 @@ function ApplicationWindow() {
     // If so, this requires you to have a back button in your HTML on iOS. Android uses standard hardware back button.
     var titleBarOn = true;
     // Set the background color appropriately.
-    var backgroundColor = '#f1e9cf';
+    var backgroundColor = '#e3e3e3';
     // Popup menu/drawer for forward/back. Without this cross-file links will have no way of getting back to the 
     // calling file without a UI in the HTML proper.
     var drawerOn = true;
@@ -21,7 +21,7 @@ function ApplicationWindow() {
     // Create our main window
     var self = Ti.UI.createWindow({
         // If no image desired, you can remove this line and set the backgroundColor instead.
-        backgroundImage : '/images/background.png',
+        // backgroundImage : '/images/background.png',
         navBarHidden : !titleBarOn, // iOS only
  //       barColor : barColor,
         modal : true,
