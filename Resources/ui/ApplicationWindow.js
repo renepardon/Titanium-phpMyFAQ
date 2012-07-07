@@ -18,15 +18,53 @@ function ApplicationWindow() {
 
     var osname = Ti.Platform.osname;
 
+var main = Ti.UI.createWindow({
+        // If no image desired, you can remove this line and set the backgroundColor instead.
+        //backgroundImage : '/images/background.png',
+		backgroundColor: '#ABABAB',
+        navBarHidden : !titleBarOn, // iOS only
+ //       barColor : barColor,
+        modal : false,
+        fullscreen: false,
+        tabBarHidden: true,
+        title: 'PHPMyFUCK',
+        exitOnClose : true  // Android only
+   });
+   main.open();
+   
+   
     // Create our main window
     var self = Ti.UI.createWindow({
         // If no image desired, you can remove this line and set the backgroundColor instead.
-        backgroundImage : '/images/background.png',
+        //backgroundImage : '/images/background.png',
+		backgroundColor: '#ABABAB',
         navBarHidden : !titleBarOn, // iOS only
  //       barColor : barColor,
-        modal : true,
+        modal : false,
+        fullscreen: false,
+        tabBarHidden: true,
+        title: 'PHPMyFUCK',
         exitOnClose : true  // Android only
     });
+    
+    
+var nav = Titanium.UI.iPhone.createNavigationGroup({window: self});
+    main.add(nav);
+    
+    
+    var rightButton = Ti.UI.createButton({systemButton: Titanium.UI.iPhone.SystemButton.ADD});
+    var leftButton = Ti.UI.createButton({systemButton: Ti.UI.iPhone.SystemButton.SEARCH});
+    rightButton.addEventListener('click', function () {
+    	var addMe = require('ui/add');
+    	addMe(nav);
+    });
+    
+    leftButton.addEventListener('click',function() {
+
+    });
+    
+    self.rightNavButton = rightButton;
+    self.leftNavButton = leftButton;
 
     if (translucentViewOn) {
         // Nice translucent rounded rect in the background.
@@ -53,7 +91,7 @@ function ApplicationWindow() {
         }
         gutter = gutter * 2;
     }
-
+/*
     // Create a WebView, this will host the HTML
     var webView = Ti.UI.createWebView({
         left : gutter,
@@ -77,16 +115,17 @@ function ApplicationWindow() {
             }));
         }, 1);
     }
-    
+    */
     // Load the platform specific UI.
     var ApplicationWindowPlatform;
     if (Ti.Platform.osname == 'mobileweb') {
         // Work around missing platform-specific require feature in Mobile Web.
         ApplicationWindowPlatform = require('mobileweb/ui/ApplicationWindowPlatform');
     } else {
-        ApplicationWindowPlatform = require('ui/ApplicationWindowPlatform');
+        ApplicationWindowPlatform = require('ui/ApplicationWindowPlatform'); // hier geht's ins iPhone
     }
-    ApplicationWindowPlatform(self, webView, titleBarOn, drawerOn);
+    ApplicationWindowPlatform(self, false, titleBarOn, drawerOn);
+    
 
     return self;
 }
