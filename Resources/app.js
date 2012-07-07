@@ -15,5 +15,5 @@ if (Ti.version < 1.8 ) {
 } else {
 	//require and open top level UI component
 	var ApplicationWindow = require('ui/ApplicationWindow');
-	new ApplicationWindow().open();
+	new ApplicationWindow().open();	
 }
