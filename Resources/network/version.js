@@ -13,8 +13,8 @@ function phpMyFAQInfo(url) {
 	var client = Ti.Network.createHTTPClient({
 		onload : function(e) {
 	 		var json = JSON.parse(this.responseText);
-	 		var db = require('db');
-	 		if (json.version) {
+	 		if (json.version) { // save data
+		 		var db = require('db');
 		 		db.createDb();
 		 		db.addDomain(url, json.version);
 	 			Ti.UI.createAlertDialog({title: 'Speicherung', message: "Installierte Version: " + json.version + "\nGespeichert."}).show();
@@ -23,9 +23,6 @@ function phpMyFAQInfo(url) {
 	 		}
 		},
 		onerror : function(e) {
-     		//Ti.API.debug(e.error);
-     		//Ti.API.info("Error: " + Ti.API.debug(e.error));
-     		//alert(e.error);
      		Ti.UI.createAlertDialog({title: 'Fehler', message: 'Es konnte keine phpMyFAQ-Version gefunden werden!'}).show();
  		},
  		timeout : 5000
