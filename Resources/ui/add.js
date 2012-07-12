@@ -10,9 +10,6 @@ function add (nav) {
     	
 	nav.open(window);
     	
-    	//var version = require('network/version');
-    	//version("http://www.phpmyfaq.de/faq/api.php?action=getVersion");
-    	
     	var view = Ti.UI.createView({layout: 'vertical'});
     	
     	var inputLabel = Ti.UI.createLabel({
