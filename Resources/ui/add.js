@@ -15,6 +15,14 @@ function add (nav) {
     	
     	var view = Ti.UI.createView({layout: 'vertical'});
     	
+    	var inputLabel = Ti.UI.createLabel({
+    		text: 'phpMyFAQ-Installation',
+    		font: {fontSize: 18},
+			shadowColor: '#aaa',
+			shadowOffset: {x:1, y:1},
+			top: 5, left: 15
+    	});
+    	view.add(inputLabel);
     	
     	var feldURL = Ti.UI.createTextField({
     		keyboardType: Ti.UI.KEYBOARD_URL,
@@ -26,6 +34,14 @@ function add (nav) {
     		right: 15
     	});
     	view.add(feldURL);
+    	
+    	var feldLabel = Ti.UI.createLabel({
+    		text: 'Geben Sie hier den URL zu Ihrer phpMyFAQ-Installation ein. Die Daten werden inklusive der installierten Version gespeichert.',
+    		color: '#ABABAB',
+    		font: { fontSize:12 },
+    		left: 15, right: 15, top: 5
+    	});
+    	view.add(feldLabel);
     	
     	var button = Ti.UI.createButton({
     		title: 'Eintragen',
@@ -41,7 +57,7 @@ function add (nav) {
     	button.addEventListener('click', function(){
     		var phpMyFAQInfo = require('network/version');
     		var version = phpMyFAQInfo(feldURL.getValue());
-    		alert(feldURL.getValue());
+    		//alert(feldURL.getValue());
     	})
     	
     	view.add(button);
