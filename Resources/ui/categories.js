@@ -2,9 +2,6 @@ function phpMyFAQCategories(url, callback) {
 	//console.log(url);
 	var client = Ti.Network.createHTTPClient({
 		onload : function(e) {
-			//Ti.API.info("Received text: " + this.responseText);
-	 		//var json = JSON.parse(this.responseText);
- 			//Ti.UI.createAlertDialog({title: 'Categorien', message: this.responseText }).show();
  			if (typeof callback == 'function') {
  				callback(this.responseText);
  			}
