@@ -85,7 +85,7 @@ var nav = Titanium.UI.iPhone.createNavigationGroup({window: self});
 	
     tableview.addEventListener('click',function(event) {
     	var AddMeAgain = require('ui/categories');
-    	AddMeAgain(nav, event.row.title);
+    	AddMeAgain(nav, event.row.uri);
     });
     
 	tableview.addEventListener('delete', function (event) {
